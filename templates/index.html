@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weather Checker</title>
+    <title>W_app</title>
     <style>
         body {
             font-family: 'Poppins', sans-serif;
@@ -22,21 +22,29 @@
             text-align: center;
             max-width: 400px;
             width: 100%;
+            border: 3px solid;
+            border-image: linear-gradient(to right, #71b7e6, #9b59b6) 1;
         }
         h2 {
             color: #333;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
+            font-size: 28px;
         }
         input[type="text"] {
             width: 100%;
             padding: 15px;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
             border: 1px solid #ccc;
             border-radius: 8px;
             font-size: 16px;
+            transition: border 0.3s ease, box-shadow 0.3s ease;
+        }
+        input[type="text"]:hover {
+            border-color: #9b59b6;
+            box-shadow: 0 0 8px rgba(155, 89, 182, 0.2);
         }
         input[type="submit"] {
-            background-color: #3498db;
+            background: linear-gradient(135deg, #3498db, #9b59b6);
             color: white;
             padding: 15px;
             width: 100%;
@@ -44,15 +52,24 @@
             border-radius: 8px;
             cursor: pointer;
             font-size: 16px;
-            transition: background-color 0.3s ease;
+            transition: background 0.3s ease, transform 0.3s ease;
         }
         input[type="submit"]:hover {
-            background-color: #b9af29;
+            background: linear-gradient(135deg, #2980b9, #8e44ad);
+            transform: scale(1.05);
         }
         .weather-info {
             margin-top: 30px;
             color: #333;
+            font-size: 20px;
+        }
+        .weather-info h3 {
+            margin-bottom: 10px;
+            color: #9b59b6;
+        }
+        .weather-info h4 {
             font-size: 18px;
+            color: #2980b9;
         }
         .error {
             color: #e74c3c;
@@ -64,7 +81,7 @@
 </head>
 <body>
     <div class="container">
-        <h2>Check Weather</h2>
+        <h2>Pytho_app</h2>
         <form action="/get_weather" method="POST">
             <input type="text" name="city" placeholder="Enter city name" required>
             <input type="submit" value="Check Weather">
