@@ -1,0 +1,6 @@
+version : "3.3"
+services :
+  web :
+     image : sharma605/weather_app:tagname
+     ports :
+         - "3000:3000"
