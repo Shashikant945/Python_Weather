@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Checker</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #71b7e6, #9b59b6);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            max-width: 400px;
+            width: 100%;
+        }
+        h2 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+        input[type="submit"] {
+            background-color: #3498db;
+            color: white;
+            padding: 15px;
+            width: 100%;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+        input[type="submit"]:hover {
+            background-color: #2980b9;
+        }
+        .weather-info {
+            margin-top: 30px;
+            color: #333;
+            font-size: 18px;
+        }
+        .error {
+            color: #e74c3c;
+            font-size: 18px;
+            margin-top: 30px;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h2>Check Weather</h2>
+        <form action="/get_weather" method="POST">
+            <input type="text" name="city" placeholder="Enter city name" required>
+            <input type="submit" value="Check Weather">
+        </form>
+
+        {% if weather %}
+            <div class="weather-info">
+                <h3>Weather in {{ city }}: {{ weather['description'] }}</h3>
+                <h4>Temperature: {{ weather['temp'] }} °C</h4>
+            </div>
+        {% elif error %}
+            <div class="error">
+                <h3>{{ error }}</h3>
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
